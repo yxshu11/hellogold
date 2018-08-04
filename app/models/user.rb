@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, :country, presence: true
 
   has_many :assets
+  has_many :transactions
   belongs_to :country
 
   after_create :create_cash_asset

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       }, skip: [:sessions, :password]
       resources :countries, only: :index
       resources :balances, only: :index
+      resources :transactions, only: [:index, :create]
     end
   end
 end
