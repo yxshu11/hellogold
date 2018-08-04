@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2018_08_04_040131) do
 
   create_table "assets", force: :cascade do |t|
     t.integer "asset_type"
-    t.decimal "balance"
+    t.decimal "balance", default: "0.0"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

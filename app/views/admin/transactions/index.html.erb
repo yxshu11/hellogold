@@ -7,11 +7,15 @@
       <div class="table-responsive">
         <%= table_for @transactions, table_html: { class: "table" } do |table| %>
           <% table.column :id, header: "ID" %>
-          <% table.column :name %>
-          <% table.column :currency_code %>
-          <% table.column data: "View", link_url: lambda { |transaction| admin_country_path(transaction) }, link_html: { class: "btn btn-block btn-sm btn-outline-warning" } %>
-          <% table.column data: "Approve", link_url: lambda { |transaction| approve_admin_country_path(transaction) }, link_html: { class: "btn btn-block btn-sm btn-outline-primary" } %>
-          <% table.column data: "Reject", link_url: lambda { |transaction| reject_admin_country_path(transaction) }, link_html: { class: "btn btn-block btn-sm btn-outline-danger" } %>
+          <% table.column :user, header: "Requester", formatter: lambda { |user| user.display_name } %>
+          <% table.column :asset_type, formatter: :titleize %>
+          <% table.column :transaction_type, formatter: :titleize %>
+          <% table.column :amount %>
+          <% table.column :transaction_reference %>
+          <% table.column :status, formatter: :titleize %>
+          <% table.column data: "View", link_url: lambda { |transaction| admin_transaction_path(transaction) }, link_html: { class: "btn btn-block btn-sm btn-outline-primary"} %>
+          <%# table.column data: "Approve", link_url: lambda { |transaction| approve_admin_transaction_path(transaction) }, link_html: { class: "btn btn-block btn-sm btn-outline-success" } %>
+          <%# table.column data: "Reject", link_url: lambda { |transaction| reject_admin_transaction_path(transaction) }, link_html: { class: "btn btn-block btn-sm btn-outline-danger" } %>
         <% end %>
       </div>
     </div>

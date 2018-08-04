@@ -1,3 +1,11 @@
-// Place all the styles related to the admin::transactions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.admin-transactions-show-page,
+.admin-transactions-index-page {
+  .title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .body-content {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,52 @@
+<div class="admin-countries-show-page">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="title">
+          <h2>Transaction #<%= @transaction.id %></h2>
+        </div>
+        <div class="body-content">
+          <div class="card">
+            <div class="card-body">
+              <div class="form-group">
+                <strong><%= label_tag :requester %></strong>
+                <p>
+                  <%= @transaction.user.display_name %>
+                </p>
+              </div>
+              <div class="form-group">
+                <strong><%= label_tag :asset_type %></strong>
+                <p>
+                  <%= @transaction.asset_type.titleize %>
+                </p>
+              </div>
+              <div class="form-group">
+                <strong><%= label_tag :transaction_type %></strong>
+                <p>
+                  <%= @transaction.transaction_type.titleize %>
+                </p>
+              </div>
+              <div class="form-group">
+                <strong><%= label_tag :amount %></strong>
+                <p>
+                  <%= @transaction.amount %>
+                </p>
+              </div>
+              <div class="form-group">
+                <strong><%= label_tag :status %></strong>
+                <p>
+                  <%= @transaction.status.titleize %>
+                </p>
+              </div>
+              <div class="form-group">
+                <%= link_to "Approve", approve_admin_transaction_path(@transaction), class: "#{'disabled' if !@transaction.status.eql?('pending')} btn btn-block btn-outline-success" %>
+                <%= link_to "Reject", reject_admin_transaction_path(@transaction), class: "#{'disabled' if !@transaction.status.eql?('pending')} btn btn-block btn-outline-danger" %>
+                <%= link_to "Back", admin_transactions_path, class: "btn btn-block btn-link" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
