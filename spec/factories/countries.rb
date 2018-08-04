@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :country do
-    name "MyString"
-    currency_code "MyString"
+    name "Malaysia"
+    currency_code "MYR"
   end
 end

@@ -19,6 +19,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'active_model_serializers'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'rspec_api_documentation'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -38,6 +39,9 @@ group :test do
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

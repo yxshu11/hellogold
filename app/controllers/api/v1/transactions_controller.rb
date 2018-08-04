@@ -1,7 +1,7 @@
 class Api::V1::TransactionsController < Api::V1::BaseController
 
   def index
-    render json: current_user.transactions.approved, each_serializer: Api::V1::TransactionSerializer
+    render json: current_user.transactions.approved.order(:created_at), each_serializer: Api::V1::TransactionSerializer
   end
 
   def top_up

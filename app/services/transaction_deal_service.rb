@@ -9,10 +9,10 @@ class TransactionDealService
       user = User.find(@transaction_params[:user_id])
       cash_asset = user.assets.find_or_create_by(asset_type: :cash)
       gold_asset = user.assets.find_or_create_by(asset_type: @transaction_params[:asset_type])
-
-      if cash_asset.balance / 10 >=  @transaction_params[:amount]
-        new_cash_balance = cash_asset.balance - @transaction_params[:amount] * 10
-        new_gold_balance = gold_asset.balance + @transaction_params[:amount]
+      transaction_amount = @transaction_params[:amount].to_f
+      if cash_asset.balance / 10 >=  transaction_amount
+        new_cash_balance = cash_asset.balance - transaction_amount * 10
+        new_gold_balance = gold_asset.balance + transaction_amount
         cash_asset.update(balance: new_cash_balance)
         gold_asset.update(balance: new_gold_balance)
         @transaction = Transaction.create(@transaction_params.merge(status: :approved))
@@ -28,10 +28,10 @@ class TransactionDealService
       user = User.find(@transaction_params[:user_id])
       cash_asset = user.assets.find_or_create_by(asset_type: :cash)
       gold_asset = user.assets.find_or_create_by(asset_type: @transaction_params[:asset_type])
-
-      if gold_asset.balance >=  @transaction_params[:amount]
-        new_cash_balance = cash_asset.balance + @transaction_params[:amount] * 10
-        new_gold_balance = gold_asset.balance - @transaction_params[:amount]
+      transaction_amount = @transaction_params[:amount].to_f
+      if gold_asset.balance >=  transaction_amount
+        new_cash_balance = cash_asset.balance + transaction_amount * 10
+        new_gold_balance = gold_asset.balance - transaction_amount
         cash_asset.update(balance: new_cash_balance)
         gold_asset.update(balance: new_gold_balance)
         @transaction = Transaction.create(@transaction_params.merge(status: :approved))
