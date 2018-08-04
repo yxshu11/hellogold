@@ -21,7 +21,12 @@ Rails.application.routes.draw do
       }, skip: [:sessions, :password]
       resources :countries, only: :index
       resources :balances, only: :index
-      resources :transactions, only: [:index, :create]
+      resources :transactions, only: [:index] do
+        post :top_up, on: :collection
+        post :withdraw, on: :collection
+        post :buy, on: :collection
+        post :sell, on: :collection
+      end
     end
   end
 end

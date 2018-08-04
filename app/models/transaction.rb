@@ -9,15 +9,10 @@ class Transaction < ApplicationRecord
   enum asset_type: [:cash, :gold, :silver]
 
   before_create :generate_transaction_reference
-  before_create :set_status
 
   private
 
   def generate_transaction_reference
     self.transaction_reference = SecureRandom.uuid
-  end
-
-  def set_status
-    self.status = "pending"
   end
 end
