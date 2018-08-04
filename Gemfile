@@ -23,7 +23,7 @@ gem 'rspec_api_documentation'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', :require => false
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -42,6 +42,7 @@ group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'shoulda-callback-matchers', '~> 1.1.1'
+  gem 'guard-rspec', require: false
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
