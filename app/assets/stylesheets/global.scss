@@ -1,0 +1,30 @@
+#error_message {
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  .title {
+    background-color: #ff4c4c;
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .message {
+    padding: 15px;
+    ul {
+      padding: 0;
+      margin-bottom: 0;
+      li {
+        list-style: none;
+        color: #474747;
+        font-weight: bold;
+      }
+    }
+  }
+}

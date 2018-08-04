@@ -1,0 +1,19 @@
+<div class="admin-transactions-index-page">
+  <div class="container">
+    <div class="title">
+      <h2>Transactions</h2>
+    </div>
+    <div class="body-content">
+      <div class="table-responsive">
+        <%= table_for @transactions, table_html: { class: "table" } do |table| %>
+          <% table.column :id, header: "ID" %>
+          <% table.column :name %>
+          <% table.column :currency_code %>
+          <% table.column data: "View", link_url: lambda { |transaction| admin_country_path(transaction) }, link_html: { class: "btn btn-block btn-sm btn-outline-warning" } %>
+          <% table.column data: "Approve", link_url: lambda { |transaction| approve_admin_country_path(transaction) }, link_html: { class: "btn btn-block btn-sm btn-outline-primary" } %>
+          <% table.column data: "Reject", link_url: lambda { |transaction| reject_admin_country_path(transaction) }, link_html: { class: "btn btn-block btn-sm btn-outline-danger" } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

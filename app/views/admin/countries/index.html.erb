@@ -1,0 +1,21 @@
+<div class="admin-countries-index-page">
+  <div class="container">
+    <div class="title">
+      <h2>Countries</h2>
+    </div>
+    <div class="button-action">
+      <%= link_to "Add new countries", new_admin_country_path, class: "btn btn-sm btn-outline-primary" %>
+    </div>
+    <div class="body-content">
+      <div class="table-responsive">
+        <%= table_for @countries, table_html: { class: "table" } do |table| %>
+          <% table.column :id, header: "ID" %>
+          <% table.column :name %>
+          <% table.column :currency_code %>
+          <% table.column data: "View", link_url: lambda { |country| admin_country_path(country) }, link_html: { class: "btn btn-block btn-sm btn-outline-primary" } %>
+          <% table.column data: "Edit", link_url: lambda { |country| edit_admin_country_path(country) }, link_html: { class: "btn btn-block btn-sm btn-outline-warning" } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

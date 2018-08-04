@@ -1,0 +1,25 @@
+<div class="admin-countries-edit-page">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="title">
+          <h2>Edit <%= @country.name %></h2>
+        </div>
+        <div class="body-content">
+          <div class="card">
+            <div class="card-body">
+              <%= form_for(@country, url: admin_country_path, method: :put) do |f| %>
+                <%= render 'shared/errors', object: @country %>
+                <%= render 'admin/countries/form', f: f %>
+                <div class="form-group">
+                  <%= f.submit "Update", class: "btn btn-block btn-success" %>
+                  <%= link_to "Back", admin_country_path(@country), class: "btn btn-block btn-link" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
