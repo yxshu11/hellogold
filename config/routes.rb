@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         registrations: 'api/v1/users/registrations',
       }, skip: [:sessions, :password]
       resources :countries, only: :index
+      resources :balances, only: :index
     end
   end
 end

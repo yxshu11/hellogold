@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     { json: { error: "Not authorized" } }
   end
 
+  def current_user
+    super || current_resource_owner
+  end
+
   private
 
   def current_resource_owner
